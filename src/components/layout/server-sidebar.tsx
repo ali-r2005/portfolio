@@ -9,14 +9,24 @@ import {
 } from "@/components/ui/tooltip"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { cn } from "@/lib/utils"
+import {
+  HomeIcon,
+  CommandLineIcon,
+  BriefcaseIcon,
+  WrenchScrewdriverIcon,
+  EnvelopeIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline"
+
+const iconClass = "size-5"
 
 const servers = [
-  { label: "Home", icon: "\u{1F3E0}", href: "/" },
-  { label: "Projects", icon: "\u{1F4C1}", href: "/projects" },
-  { label: "Experience", icon: "\u{1F4BC}", href: "/experience" },
-  { label: "Skills", icon: "\u{2699}\uFE0F", href: "/skills" },
-  { label: "Contact", icon: "\u{2709}\uFE0F", href: "/contact" },
-  { label: "Blog", icon: "\u{1F4DD}", href: "/blog" },
+  { label: "Home", icon: <HomeIcon className={iconClass} />, href: "/" },
+  { label: "Projects", icon: <CommandLineIcon className={iconClass} />, href: "/projects" },
+  { label: "Experience", icon: <BriefcaseIcon className={iconClass} />, href: "/experience" },
+  { label: "Skills", icon: <WrenchScrewdriverIcon className={iconClass} />, href: "/skills" },
+  { label: "Contact", icon: <EnvelopeIcon className={iconClass} />, href: "/contact" },
+  { label: "Blog", icon: <PencilSquareIcon className={iconClass} />, href: "/blog" },
 ]
 
 export function ServerSidebar() {
@@ -57,7 +67,7 @@ export function ServerSidebar() {
                     : "bg-background text-muted-foreground hover:bg-primary hover:text-primary-foreground",
                 )}
               >
-                <span className="text-base">{server.icon}</span>
+                {server.icon}
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right" className="bg-foreground text-background">
