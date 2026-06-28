@@ -57,18 +57,18 @@
 }
 
 :root {
-  --background: #313338;
-  --foreground: #dbdee1;
-  --card: #2b2d31;
-  --card-foreground: #dbdee1;
-  --popover: #2b2d31;
-  --popover-foreground: #dbdee1;
+  --background: #f2f3f5;
+  --foreground: #060607;
+  --card: #ffffff;
+  --card-foreground: #060607;
+  --popover: #ffffff;
+  --popover-foreground: #060607;
   --primary: #5865f2;
   --primary-foreground: #ffffff;
-  --secondary: #2b2d31;
-  --secondary-foreground: #dbdee1;
-  --muted: #3f4147;
-  --muted-foreground: #949ba4;
+  --secondary: #ebedef;
+  --secondary-foreground: #4e5058;
+  --muted: #e3e5e8;
+  --muted-foreground: #8e9297;
   --accent: #5865f2;
   --accent-foreground: #ffffff;
   --destructive: #da373c;
@@ -77,28 +77,28 @@
   --success-foreground: #ffffff;
   --warning: #f0b232;
   --warning-foreground: #ffffff;
-  --channel: #8e9297;
-  --channel-hover: #dbdee1;
-  --bg-hover: #3f4147;
-  --bg-active: #4e5058;
-  --border: #3f4147;
-  --input: #1e1f22;
+  --channel: #4f5660;
+  --channel-hover: #060607;
+  --bg-hover: #e3e5e8;
+  --bg-active: #d4d7dc;
+  --border: #d4d7dc;
+  --input: #ebedef;
   --ring: #5865f2;
   --radius: 0.5rem;
   --chart-1: #5865f2;
   --chart-2: #23a55a;
   --chart-3: #f0b232;
   --chart-4: #da373c;
-  --chart-5: #949ba4;
-  --sidebar: #1e1f22;
-  --sidebar-foreground: #949ba4;
+  --chart-5: #8e9297;
+  --sidebar: #f2f3f5;
+  --sidebar-foreground: #4f5660;
   --sidebar-primary: #5865f2;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #3f4147;
-  --sidebar-accent-foreground: #dbdee1;
-  --sidebar-border: #3f4147;
+  --sidebar-accent: #e3e5e8;
+  --sidebar-accent-foreground: #060607;
+  --sidebar-border: #d4d7dc;
   --sidebar-ring: #5865f2;
-  --text-secondary: #b5bac1;
+  --text-secondary: #4e5058;
 }
 
 .dark {
@@ -163,9 +163,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e1f22;
+  background: color-mix(in srgb, var(--foreground) 16%, transparent);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f4147;
+  background: color-mix(in srgb, var(--foreground) 32%, transparent);
 }
