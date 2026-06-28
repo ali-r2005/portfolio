@@ -1,10 +1,12 @@
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Card } from "@/components/ui/card"
-import { blogPosts } from "@/data/blog-posts"
+import { getAllPostSlugs, getPostData } from "@/lib/posts"
+import { Markdown } from "@/components/markdown"
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }))
+  return getAllPostSlugs().map((slug) => ({ slug }))
 }
 
 export default async function BlogPostPage({
@@ -13,13 +15,13 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
 
-  if (!post) {
+  let post
+  try {
+    post = getPostData(slug)
+  } catch {
     notFound()
   }
-
-  const lines = post.content.split("\n")
 
   return (
     <div className="mx-auto max-w-3xl p-6">
@@ -33,6 +35,16 @@ export default async function BlogPostPage({
         Back to blog
       </Link>
 
+      <div className="relative mb-6 h-64 w-full overflow-hidden rounded-lg">
+        <Image
+          src={post.coverImage}
+          alt={post.title}
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       <div className="mb-6 border-b border-border pb-4">
         <h1 className="text-lg font-semibold text-foreground">{post.title}</h1>
         <p className="text-sm text-muted-foreground">{post.date}</p>
@@ -40,23 +52,7 @@ export default async function BlogPostPage({
 
       <Card className="border-border bg-card p-6">
         <div className="prose prose-invert prose-sm max-w-none">
-          {lines.map((line, i) => {
-            if (line.startsWith("## ")) {
-              return (
-                <h2 key={i} className="mb-3 mt-6 text-base font-semibold text-foreground first:mt-0">
-                  {line.slice(3)}
-                </h2>
-              )
-            }
-            if (line.trim() === "") {
-              return <div key={i} className="h-3" />
-            }
-            return (
-              <p key={i} className="mb-2 leading-relaxed text-text-secondary last:mb-0">
-                {line}
-              </p>
-            )
-          })}
+          <Markdown content={post.content} />
         </div>
       </Card>
     </div>
