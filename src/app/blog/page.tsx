@@ -13,11 +13,11 @@ export default function BlogPage() {
         <p className="text-sm text-muted-foreground">Articles and thoughts</p>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid grid-cols-2 gap-6">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <Card className="overflow-hidden border-border bg-card transition-colors hover:bg-muted/50">
-              <div className="relative h-48 w-full">
+            <Card className="overflow-hidden border-border bg-card pt-0 transition-colors hover:bg-muted/50">
+              <div className="relative h-48 -mx-(--card-spacing) w-auto">
                 <Image
                   src={post.coverImage}
                   alt={post.title}
