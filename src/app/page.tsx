@@ -15,7 +15,7 @@ export default function HomePage() {
         </div>
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold text-foreground">Dev</h1>
+            <h1 className="text-2xl font-semibold text-foreground">Dev</h1>
             <Badge variant="secondary" className="bg-muted text-xs text-muted-foreground">he/him</Badge>
           </div>
           <p className="text-sm text-muted-foreground">Software Developer</p>

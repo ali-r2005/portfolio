@@ -6,7 +6,7 @@ export default function SkillsPage() {
   return (
     <div className="mx-auto max-w-3xl p-6">
       <div className="mb-6 border-b border-border pb-4">
-        <h1 className="text-lg font-semibold text-foreground">Skills</h1>
+        <h1 className="text-3xl font-semibold text-foreground">Skills</h1>
         <p className="text-sm text-muted-foreground">Technologies I work with</p>
       </div>
 
