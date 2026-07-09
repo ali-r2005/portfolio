@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import {
   Tooltip,
@@ -39,11 +40,11 @@ export function ServerSidebar() {
           <Link
             href="/"
             className={cn(
-              "flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-lg font-bold text-primary-foreground transition-all duration-150 hover:rounded-xl",
+              "flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-150 hover:rounded-xl",
               pathname === "/" && "rounded-xl",
             )}
           >
-            D
+            <Image src="/A-logo.png" alt="Logo" width={48} height={48} className="rounded-2xl" />
           </Link>
         </TooltipTrigger>
         <TooltipContent side="right" className="bg-foreground text-background">

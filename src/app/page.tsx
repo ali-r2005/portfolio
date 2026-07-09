@@ -69,7 +69,7 @@ export default function HomePage() {
             {/* Profile Info */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-3">
-                <h1 className="text-4xl font-semibold text-foreground">Dev</h1>
+                <h1 className="text-4xl font-semibold text-foreground">Ali Rami</h1>
                 <Badge variant="secondary" className="bg-muted text-xs text-muted-foreground">he/him</Badge>
               </div>
               <p className="text-base text-muted-foreground">Software Developer</p>
