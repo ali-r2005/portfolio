@@ -34,35 +34,35 @@ const socialLinks = [
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-3xl p-6">
-      <div className="mb-6 border-b border-border pb-4">
-        <h1 className="text-3xl font-semibold text-foreground">Contact</h1>
-        <p className="text-sm text-muted-foreground">Send me a message</p>
+    <div className="mx-auto max-w-6xl p-8">
+      <div className="mb-8 border-b border-border pb-8">
+        <h1 className="text-4xl font-semibold text-foreground">Contact</h1>
+        <p className="mt-2 text-base text-muted-foreground">Send me a message</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2">
         <Card className="border-border bg-card">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-semibold text-foreground">Send a message</CardTitle>
+          <CardHeader className="pb-4">
+            <CardTitle className="text-base font-semibold text-foreground">Send a message</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-2">
             <ContactForm />
           </CardContent>
         </Card>
 
-        <div className="space-y-3">
+        <div className="space-y-6">
           <Card className="border-border bg-card">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-semibold text-foreground">Social Links</CardTitle>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-base font-semibold text-foreground">Social Links</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2">
+            <CardContent className="space-y-3 pt-2">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-muted hover:text-foreground"
+                  className="flex items-center gap-4 rounded-lg px-4 py-3 text-base text-text-secondary transition-colors hover:bg-muted hover:text-foreground"
                 >
                   <span className="text-primary">{link.icon}</span>
                   {link.label}
@@ -72,13 +72,13 @@ export default function ContactPage() {
           </Card>
 
           <Card className="border-border bg-card">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-semibold text-foreground">Email</CardTitle>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-base font-semibold text-foreground">Email</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-2">
               <a
                 href="mailto:dev@example.com"
-                className="text-sm text-primary hover:underline"
+                className="text-base text-primary hover:underline"
               >
                 dev@example.com
               </a>
