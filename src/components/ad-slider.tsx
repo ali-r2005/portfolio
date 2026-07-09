@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const ads = [
   {
-    image: "https://picsum.photos/seed/ad1/600/1200",
+    image: "/ad1.png",
     alt: "Ad 1",
   },
   {
@@ -17,7 +17,7 @@ const ads = [
     alt: "Ad 3",
   },
   {
-    image: "https://picsum.photos/seed/ad4/600/1200",
+    image: "/ad2.png",
     alt: "Ad 4",
   },
 ]
