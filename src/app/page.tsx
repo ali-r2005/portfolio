@@ -3,13 +3,7 @@ import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { getSortedPostsData } from "@/lib/posts"
-
-const galleryPhotos = [
-  "/7392521.jpg",
-  "/9285000.jpg",
-  "/pixel-art-style-scene-with-adorable-pet-cat.jpg",
-  "/2.png",
-]
+import { AdSlider } from "@/components/ad-slider"
 
 export default function HomePage() {
   const recentPosts = getSortedPostsData().slice(0, 3)
@@ -17,7 +11,7 @@ export default function HomePage() {
   return (
     <div className="w-full">
       {/* Banner Section */}
-      <div className="relative h-80 w-full overflow-hidden bg-muted">
+      <div className="relative h-64 w-full overflow-hidden bg-muted">
         <Image
           src="/380cd3195922117.66168b374f719.gif"
           alt="Profile Banner"
@@ -29,7 +23,7 @@ export default function HomePage() {
 
       <div className="mx-auto flex w-[80%] items-start gap-0">
         {/* Left Sidebar — Recent Posts */}
-        <aside className="hidden w-96 shrink-0 pt-8 lg:block">
+        <aside className="hidden w-72 shrink-0 pt-8 lg:block">
           <div className="sticky top-8 flex flex-col gap-4">
             <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               <span className="h-4 w-4 rounded-full bg-primary" />
@@ -143,23 +137,14 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Right Sidebar — Photo Gallery */}
-        <aside className="hidden w-96 shrink-0 pt-8 xl:block">
+        {/* Right Sidebar — Ads */}
+        <aside className="hidden w-72 shrink-0 pt-8 xl:block">
           <div className="sticky top-8 flex flex-col gap-4">
             <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               <span className="h-4 w-4 rounded-full bg-primary" />
-              Gallery
+              Ads
             </div>
-            <div className="grid grid-cols-1 gap-3">
-              {galleryPhotos.map((src) => (
-                <div
-                  key={src}
-                  className="relative aspect-square overflow-hidden rounded-xl border border-border"
-                >
-                  <Image src={src} alt="" fill className="object-cover" />
-                </div>
-              ))}
-            </div>
+            <AdSlider />
           </div>
         </aside>
       </div>
