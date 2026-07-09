@@ -81,7 +81,14 @@ export default function HomePage() {
               <h3 className="text-base font-medium text-foreground">GitHub</h3>
               <p className="mt-1 text-sm text-muted-foreground">@dev</p>
             </Card>
-            <Card className="border-border bg-card p-8 transition-colors hover:bg-muted">
+            <Card
+              className="border-border p-8 transition-opacity hover:opacity-90"
+              style={{
+                backgroundImage: "url('/2.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20">
                 <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
