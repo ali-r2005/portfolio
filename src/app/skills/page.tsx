@@ -22,7 +22,7 @@ export default function SkillsPage() {
                   <Badge
                     key={skill}
                     variant="secondary"
-                    className="bg-sidebar px-4 py-2 text-base text-text-secondary"
+                    className="bg-sidebar p-4 text-base text-text-secondary"
                   >
                     {skill}
                   </Badge>
