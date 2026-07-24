@@ -2,12 +2,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
-import { getSortedPostsData } from "@/lib/posts"
 import { AdSlider } from "@/components/ad-slider"
 
 export default function HomePage() {
-  const recentPosts = getSortedPostsData().slice(0, 3)
-
   return (
     <div className="w-full">
       {/* Banner Section */}
@@ -21,37 +18,9 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="mx-auto flex w-[80%] items-start gap-0">
-        {/* Left Sidebar — Recent Posts */}
-        <aside className="hidden w-72 shrink-0 pt-8 lg:block">
-          <div className="sticky top-8 flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              <span className="h-4 w-4 rounded-full bg-primary" />
-              Recent Posts
-            </div>
-            {recentPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <Card className="overflow-hidden border-border bg-card p-0 transition-colors hover:bg-muted/50">
-                  <div className="relative h-28 w-full">
-                    <Image
-                      src={post.coverImage}
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="line-clamp-2 text-sm font-medium text-foreground">{post.title}</h3>
-                    <p className="mt-1 text-xs text-muted-foreground">{post.date}</p>
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </aside>
-
+      <div className="mx-auto flex w-full max-w-7xl gap-8 p-8">
         {/* Main Content */}
-        <div className="mx-auto min-w-0 max-w-6xl flex-1 p-8">
+        <div className="min-w-0 flex-1">
           {/* Profile Section */}
           <div className="relative -mt-20 mb-12 flex flex-col gap-6">
             {/* Profile Picture */}
