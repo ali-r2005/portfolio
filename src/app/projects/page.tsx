@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { projects } from "@/data/projects"
@@ -16,7 +17,11 @@ export default function ProjectsPage() {
             <CardHeader className="pb-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <CardTitle className="text-lg text-foreground">{project.title}</CardTitle>
+                  <CardTitle className="text-lg text-foreground">
+                    <Link href={`/projects/${project.slug}`} className="transition-colors hover:text-primary">
+                      {project.title}
+                    </Link>
+                  </CardTitle>
                   <CardDescription className="mt-2 text-base text-text-secondary">
                     {project.description}
                   </CardDescription>
@@ -35,7 +40,14 @@ export default function ProjectsPage() {
                   </Badge>
                 ))}
               </div>
-              <div className="flex gap-4">
+              <div className="flex items-center gap-4">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="group flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary/80"
+                >
+                  Details
+                  <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                </Link>
                 {project.github && (
                   <a
                     href={project.github}
