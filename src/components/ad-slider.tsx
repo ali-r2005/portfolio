@@ -40,7 +40,7 @@ export function AdSlider() {
           className="absolute inset-0 transition-opacity duration-700"
           style={{ opacity: i === current ? 1 : 0 }}
         >
-          <Image src={ad.image} alt={ad.alt} fill className="object-cover" />
+          <Image src={ad.image} alt={ad.alt} fill className="object-contain" />
         </div>
       ))}
     </div>
