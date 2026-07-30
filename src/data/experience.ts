@@ -11,23 +11,26 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    company: "Full-Stack Developer Intern — Tendencia Events & Travel",
-    role: "Senior Software Engineer",
-    period: "Jan 2024 — Present",
+    company: "Tendencia Events & Travel",
+    role: "Automation & Full-Stack Developer",
+    period: "May 2026 — Present",
     description:
-      "Leading the platform team building next-gen developer tools. Architecting distributed systems handling 10M+ requests daily.",
+      "Full-stack software engineering internship focused on building internal automation tools, developing proposal generation systems, and evaluating ERP solutions to improve business operations for a travel and event management company.",
     responsibilities: [
-      "Architected and maintained microservices handling 10M+ daily requests across 3 data centers",
-      "Led a 5-person engineering team through quarterly planning, code reviews, and production deployments",
-      "Designed event-driven architecture using Kafka for real-time data processing and analytics",
-      "Established monitoring and alerting pipelines reducing mean time to detection by 60%",
+      "Developed internal web applications.",
+      "Designed automation workflows using n8n.",
+      "Researched ERP solutions.",
+      "Collaborated with stakeholders to gather requirements.",
+      "Maintained and customized company websites.",
     ],
     achievements: [
-      "Reduced API latency by 40% through query optimization and caching strategy overhaul",
-      "Drove adoption of TypeScript across the codebase, cutting production bugs by 35%",
-      "Received internal innovation award for designing a self-healing deployment pipeline",
+      "Designed a complete lead automation architecture covering five business workflows.",
+      "Built ProposalOS, replacing a PowerPoint-based proposal generation system with a scalable HTML template engine.",
+      "Developed SlideForge to automate PowerPoint proposal creation.",
+      "Proposed migrating from Perfex CRM to ERPNext after a technical evaluation.",
+      "Reduced proposal generation complexity through a redesigned architecture."
     ],
-    toolsUsed: ["TypeScript", "Go", "Kubernetes", "Kafka", "PostgreSQL", "Redis", "Terraform", "Datadog"],
+    toolsUsed: ["Next.js", "FastAPI", "Python", "React", "TypeScript", "n8n", "ERPNext", "Docker", "PostgreSQL", "Tailwind CSS","Git", "wordpress"],
     relatedProjects: [
       { title: "ProposalOS", slug: "proposal-os" },
       { title: "Sales Automation Platform", slug: "sales-automation-platform" },
