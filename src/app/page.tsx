@@ -57,14 +57,16 @@ export default function HomePage() {
             </div>
             <Card className="border-border bg-card p-8">
               <p className="text-lg leading-relaxed text-foreground">
-                Hey! I&apos;m a software developer who loves building tools that make other developers&apos; lives easier.
-                I specialize in full-stack web development with React, TypeScript, and Go, and I&apos;m passionate
-                about distributed systems, real-time applications, and developer tooling.
+                I&apos;m a software engineer who enjoys turning ideas into real products. I like understanding
+                problems from both the technical and business perspectives before designing solutions that
+                are scalable, maintainable, and practical.
               </p>
               <p className="mt-6 text-lg leading-relaxed text-text-secondary">
-                When I&apos;m not coding, you&apos;ll find me contributing to open-source projects, writing about tech,
-                or exploring new programming languages. I believe in clean code, good documentation, and
-                building things that matter.
+                Over the past few years I&apos;ve worked across the full stack, but recently I&apos;ve been
+                deeply focused on the JavaScript and TypeScript ecosystem, building modern web applications,
+                automation platforms, and developer tools. Whether it&apos;s designing an API, architecting a
+                system, or refining a user experience, I enjoy building software that solves real world
+                problems and continuously learning better ways to do it.
               </p>
             </Card>
           </div>
