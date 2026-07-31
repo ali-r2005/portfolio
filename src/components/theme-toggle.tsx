@@ -19,7 +19,7 @@ export function ThemeToggle() {
 
   return (
     <span
-      className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-2xl bg-background text-lg text-muted-foreground transition-all duration-150 hover:rounded-xl hover:bg-primary hover:text-primary-foreground"
+      className="flex h-10 w-10 sm:h-12 sm:w-12 cursor-pointer items-center justify-center rounded-2xl bg-background text-lg text-muted-foreground transition-all duration-150 hover:rounded-xl hover:bg-primary hover:text-primary-foreground"
       onClick={toggle}
     >
       {dark ? (

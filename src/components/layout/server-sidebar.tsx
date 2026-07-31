@@ -34,17 +34,17 @@ export function ServerSidebar() {
   const pathname = usePathname()
 
   return (
-    <div className="flex w-[72px] shrink-0 flex-col items-center gap-2 bg-sidebar py-3">
+    <div className="flex w-14 sm:w-[72px] shrink-0 flex-col items-center gap-2 bg-sidebar py-3">
       <Tooltip>
         <TooltipTrigger>
           <Link
             href="/"
             className={cn(
-              "flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-150 hover:rounded-xl",
+              "flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl transition-all duration-150 hover:rounded-xl",
               pathname === "/" && "rounded-xl",
             )}
           >
-            <Image src="/A-logo.png" alt="Logo" width={48} height={48} className="rounded-2xl" />
+            <Image src="/A-logo.png" alt="Logo" width={48} height={48} className="h-full w-full rounded-2xl" />
           </Link>
         </TooltipTrigger>
         <TooltipContent side="right" className="bg-foreground text-background">
@@ -62,7 +62,7 @@ export function ServerSidebar() {
               <Link
                 href={server.href}
                 className={cn(
-                  "flex h-12 w-12 items-center justify-center rounded-2xl text-lg transition-all duration-150 hover:rounded-xl",
+                  "flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl text-lg transition-all duration-150 hover:rounded-xl",
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : "bg-background text-muted-foreground hover:bg-primary hover:text-primary-foreground",
