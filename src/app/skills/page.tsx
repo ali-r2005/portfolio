@@ -14,7 +14,7 @@ export default function SkillsPage() {
         {skills.map((group) => (
           <Card key={group.category} className="border-border bg-card">
             <CardHeader className="pb-4">
-              <CardTitle className="text-base font-semibold text-foreground">{group.category}</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground">{group.category}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-3">

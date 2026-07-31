@@ -95,4 +95,76 @@ export const projects: Project[] = [
     architecture:
       "FastAPI receives proposal data and modifies PowerPoint templates before exporting finished presentations.",
   },
+  {
+    title: "Waitless",
+    slug: "waitless",
+    description:
+      "A full-stack queue management system with real-time queue tracking, role-based dashboards, and customer self-service, built with a Next.js frontend and a Laravel API backend.",
+
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Query",
+      "Zustand",
+      "React Hook Form",
+      "Zod",
+      "Laravel Echo",
+      "Pusher",
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "JWT",
+    ],
+
+    image: null,
+
+    github: "",
+
+    live: null,
+
+    overview:
+      "Waitless is a queue management platform that lets businesses run live queues and lets customers track their position in real time. The frontend is a Next.js 16 App Router SPA with feature-based architecture (auth, QueueManagement, BusinessManagement, dashboard, Customer), while the backend is a Laravel 12 API handling business/queue CRUD, customer flow, role-based access, and real-time broadcasting via Laravel Reverb/Pusher.",
+
+    features: [
+      "Real-time queue position updates via WebSockets (Laravel Echo + Pusher)",
+      "Role-based access for business owners, staff, and customers",
+      "Queue CRUD with activate/pause/resume/call-next/complete-serving flows",
+      "Customer self-service: join, cancel, and track queue position",
+      "Staff and business management (add/remove staff, search users)",
+      "Role-based KPI dashboards with charts (Recharts)",
+      "JWT authentication with token refresh",
+    ],
+
+    architecture:
+      "Next.js frontend (feature-based modules under src/features, TanStack Query for server state, Zustand for client state, Axios with JWT interceptors) communicates with a Laravel 12 API over REST. The API layer (Controllers → Services → Models) applies role middleware and persists to MySQL, then broadcasts queue/customer state changes (SendUpdate, StaffQueueUpdate, etc.) over private Pusher/Reverb channels that the frontend subscribes to for live updates.",
+  },
+  {
+    title: "WHOIS Morocco (MaWhois)",
+    slug: "mawhois",
+    description:
+      "A public WHOIS lookup service for .ma domain names, providing real-time access to Moroccan domain registration data synchronized with the official ANRT registry.",
+
+    tech: ["Astro", "Tailwind CSS", "Cloudflare Workers"],
+
+    image: null,
+
+    github: "",
+
+    live: "https://www.mawhois.com/",
+
+    overview:
+      "MaWhois is an online directory service based on the .ma registry database, giving businesses, domain registrants, and international companies transparent access to Moroccan domain registration data as required by ANRT (Morocco's telecommunications authority).",
+
+    features: [
+      "Domain availability checking for .ma domains",
+      "Ownership verification (registrant name, contact details, company ID)",
+      "Technical data lookup: DNS servers, creation/expiration dates, domain status",
+      "Lifecycle tracking (active, suspended, expired, pending)",
+      "Multi-extension support (.ma, .net.ma, .ac.ma, .co.ma, .press.ma, .org.ma, .gov.ma, and international TLDs)",
+    ],
+
+    architecture:
+      "Built with Astro and Tailwind CSS, the site queries the official .ma registry (managed by ANRT) to serve real-time domain data, with WHMCS integration for domain management workflows. Deployed on Cloudflare, running on Cloudflare Workers.",
+  },
 ];
