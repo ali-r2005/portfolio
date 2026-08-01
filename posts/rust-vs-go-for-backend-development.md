@@ -1,6 +1,7 @@
 ---
 title: 'Rust vs Go for Backend Development in 2026'
 date: '2026-05-28'
+lastModified: '2026-06-30'
 excerpt: 'Comparing performance, ergonomics, and ecosystem of the two most popular systems programming languages for backend services.'
 coverImage: 'https://picsum.photos/seed/rustgo/800/400'
 ---

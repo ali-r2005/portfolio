@@ -1,6 +1,7 @@
 export interface Project {
   title: string
   slug: string
+  lastModified: string
   description: string
   tech: string[]
   image: string | null
@@ -15,6 +16,7 @@ export const projects: Project[] = [
   {
     title: "ProposalOS",
     slug: "proposal-os",
+    lastModified: "2026-07-20",
     description:
       "A template-driven proposal generation platform that renders dynamic HTML proposals for travel and event agencies, replacing traditional PowerPoint-based workflows.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
@@ -40,6 +42,7 @@ export const projects: Project[] = [
   {
     title: "Sales Automation Platform",
     slug: "sales-automation-platform",
+    lastModified: "2026-07-05",
     description:
       "Designed an end-to-end sales automation architecture using n8n to automate lead acquisition, qualification, follow-up, notifications, and proposal generation.",
 
@@ -70,6 +73,7 @@ export const projects: Project[] = [
   {
     title: "SlideForge",
     slug: "slideforge",
+    lastModified: "2026-06-18",
 
     description:
       "A FastAPI service for generating commercial PowerPoint proposals dynamically using PPTX templates.",
@@ -98,6 +102,7 @@ export const projects: Project[] = [
   {
     title: "Waitless",
     slug: "waitless",
+    lastModified: "2026-07-28",
     description:
       "A full-stack queue management system with real-time queue tracking, role-based dashboards, and customer self-service, built with a Next.js frontend and a Laravel API backend.",
 
@@ -142,6 +147,7 @@ export const projects: Project[] = [
   {
     title: "WHOIS Morocco (MaWhois)",
     slug: "mawhois",
+    lastModified: "2026-05-30",
     description:
       "A public WHOIS lookup service for .ma domain names, providing real-time access to Moroccan domain registration data synchronized with the official ANRT registry.",
 

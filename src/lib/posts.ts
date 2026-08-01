@@ -6,6 +6,7 @@ export interface PostData {
   slug: string
   title: string
   date: string
+  lastModified: string
   excerpt: string
   coverImage: string
   content: string
@@ -25,6 +26,7 @@ export function getSortedPostsData(): Omit<PostData, "content">[] {
       slug,
       title: matterResult.data.title as string,
       date: matterResult.data.date as string,
+      lastModified: matterResult.data.lastModified as string,
       excerpt: matterResult.data.excerpt as string,
       coverImage: matterResult.data.coverImage as string,
     }
@@ -46,6 +48,7 @@ export function getPostData(slug: string): PostData {
     slug,
     title: matterResult.data.title as string,
     date: matterResult.data.date as string,
+    lastModified: matterResult.data.lastModified as string,
     excerpt: matterResult.data.excerpt as string,
     coverImage: matterResult.data.coverImage as string,
     content: matterResult.content,

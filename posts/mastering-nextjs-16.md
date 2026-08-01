@@ -1,6 +1,7 @@
 ---
 title: "What's New in Next.js 16"
 date: '2026-05-10'
+lastModified: '2026-06-05'
 excerpt: 'Exploring the latest features including Turbopack by default, React 19 integration, and the new caching model.'
 coverImage: 'https://picsum.photos/seed/nextjs16/800/400'
 ---

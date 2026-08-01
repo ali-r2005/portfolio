@@ -1,6 +1,7 @@
 ---
 title: 'Building Real-Time Apps with CRDTs'
 date: '2026-06-15'
+lastModified: '2026-07-20'
 excerpt: 'A deep dive into conflict-free replicated data types and how they power modern collaborative applications.'
 coverImage: 'https://picsum.photos/seed/crdt/800/400'
 ---
