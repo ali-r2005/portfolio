@@ -1,0 +1,1 @@
+export const BASE_URL = "https://portfolio-tan-six-064qa7n1jx.vercel.app"

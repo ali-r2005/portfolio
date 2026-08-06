@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { skills } from "@/data/skills"
+import { BASE_URL } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${BASE_URL}/skills`,
+  },
+}
 
 export default function SkillsPage() {
   return (

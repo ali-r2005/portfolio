@@ -1,7 +1,15 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { projects } from "@/data/projects"
+import { BASE_URL } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${BASE_URL}/projects`,
+  },
+}
 
 export default function ProjectsPage() {
   return (

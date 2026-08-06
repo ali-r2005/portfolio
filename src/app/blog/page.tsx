@@ -1,7 +1,15 @@
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getSortedPostsData } from "@/lib/posts"
+import { BASE_URL } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${BASE_URL}/blog`,
+  },
+}
 
 export default function BlogPage() {
   const posts = getSortedPostsData()

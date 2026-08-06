@@ -1,12 +1,29 @@
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { getAllPostSlugs, getPostData } from "@/lib/posts"
 import { Markdown } from "@/components/markdown"
+import { BASE_URL } from "@/lib/constants"
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPostData(slug)
+  return {
+    title: post.title,
+    alternates: {
+      canonical: `${BASE_URL}/blog/${post.slug}`,
+    },
+  }
 }
 
 export default async function BlogPostPage({

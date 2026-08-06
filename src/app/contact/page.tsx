@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
+import { BASE_URL } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${BASE_URL}/contact`,
+  },
+}
 
 const socialLinks = [
   {

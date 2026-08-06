@@ -1,8 +1,16 @@
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { AdSlider } from "@/components/ad-slider"
+import { BASE_URL } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: BASE_URL,
+  },
+}
 
 export default function HomePage() {
   return (

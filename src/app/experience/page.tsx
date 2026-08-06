@@ -1,7 +1,15 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { experience } from "@/data/experience"
+import { BASE_URL } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${BASE_URL}/experience`,
+  },
+}
 
 export default function ExperiencePage() {
   return (
