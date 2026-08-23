@@ -15,13 +15,13 @@ export default function BlogPage() {
   const posts = getSortedPostsData()
 
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
       <div className="mb-8 border-b border-border pb-8">
-        <h1 className="text-4xl font-semibold text-foreground">Blog</h1>
+        <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Blog</h1>
         <p className="mt-2 text-base text-muted-foreground">Articles and thoughts</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
             <Card className="overflow-hidden border-border bg-card pt-0 transition-colors hover:bg-muted/50">

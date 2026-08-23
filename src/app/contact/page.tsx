@@ -42,13 +42,13 @@ const socialLinks = [
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
       <div className="mb-8 border-b border-border pb-8">
-        <h1 className="text-4xl font-semibold text-foreground">Contact</h1>
+        <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Contact</h1>
         <p className="mt-2 text-base text-muted-foreground">Send me a message</p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2 md:gap-8">
         <Card className="border-border bg-card">
           <CardHeader className="pb-4">
             <CardTitle className="text-base font-semibold text-foreground">Send a message</CardTitle>

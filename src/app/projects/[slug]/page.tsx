@@ -30,7 +30,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound()
 
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
       <Link
         href="/projects"
         className="mb-6 flex items-center gap-2 text-base text-muted-foreground transition-colors hover:text-foreground"
@@ -42,13 +42,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </Link>
 
       {project.image && (
-        <div className="relative mb-8 h-80 w-full overflow-hidden rounded-lg">
+        <div className="relative mb-8 h-48 sm:h-64 md:h-80 w-full overflow-hidden rounded-lg">
           <Image src={project.image} alt={project.title} fill className="object-cover" priority />
         </div>
       )}
 
       <div className="mb-8 border-b border-border pb-8">
-        <h1 className="text-4xl font-semibold text-foreground">{project.title}</h1>
+        <h1 className="text-3xl font-semibold text-foreground md:text-4xl">{project.title}</h1>
         <p className="mt-2 text-base text-text-secondary">{project.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.tech.map((t) => (
@@ -90,14 +90,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </div>
 
       {project.overview && (
-        <Card className="mb-6 border-border bg-card p-6">
+        <Card className="mb-6 border-border bg-card p-4 sm:p-6">
           <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-muted-foreground">Overview</h2>
           <p className="text-base leading-relaxed text-text-secondary">{project.overview}</p>
         </Card>
       )}
 
       {project.features && (
-        <Card className="mb-6 border-border bg-card p-6">
+        <Card className="mb-6 border-border bg-card p-4 sm:p-6">
           <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-muted-foreground">Key Features</h2>
           <ul className="space-y-2">
             {project.features.map((f) => (
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       )}
 
       {project.architecture && (
-        <Card className="border-border bg-card p-6">
+        <Card className="border-border bg-card p-4 sm:p-6">
           <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-muted-foreground">Architecture</h2>
           <p className="text-base leading-relaxed text-text-secondary">{project.architecture}</p>
         </Card>

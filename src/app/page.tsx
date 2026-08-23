@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="w-full">
       {/* Banner Section */}
-      <div className="relative h-64 w-full overflow-hidden bg-muted">
+      <div className="relative h-40 sm:h-56 md:h-64 w-full overflow-hidden bg-muted">
         <Image
           src="/380cd3195922117.66168b374f719.gif"
           alt="Profile Banner"
@@ -25,14 +25,14 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl gap-8 p-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 p-4 sm:gap-6 sm:p-6 md:gap-8 md:p-8 xl:flex-row">
         {/* Main Content */}
         <div className="min-w-0 flex-1">
           {/* Profile Section */}
           <div className="relative -mt-20 mb-12 flex flex-col gap-6">
             {/* Profile Picture */}
             <div className="relative">
-              <div className="relative h-40 w-40 overflow-hidden rounded-2xl border-4 border-background shadow-lg">
+              <div className="relative h-22 w-22 sm:h-32 sm:w-32 md:h-40 md:w-40 overflow-hidden rounded-2xl border-4 border-background shadow-lg">
                 <Image
                   src="/1.gif"
                   alt="Profile Picture"
@@ -45,7 +45,7 @@ export default function HomePage() {
             {/* Profile Info */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-3">
-                <h1 className="text-4xl font-semibold text-foreground">Ali Rami</h1>
+                <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Ali Rami</h1>
                 <Badge variant="secondary" className="bg-muted text-xs text-muted-foreground">he/him</Badge>
               </div>
               <p className="text-base text-muted-foreground">Software Developer</p>
@@ -62,7 +62,7 @@ export default function HomePage() {
               <span className="h-4 w-4 rounded-full bg-primary" />
               About Me
             </h2>
-            <Card className="border-border bg-card p-8">
+            <Card className="border-border bg-card p-4 sm:p-6 md:p-8">
               <p className="text-lg leading-relaxed text-foreground">
                 I&apos;m a software engineer who enjoys turning ideas into real products. I like understanding
                 problems from both the technical and business perspectives before designing solutions that

@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
       <div className="mb-8 border-b border-border pb-8">
-        <h1 className="text-4xl font-semibold text-foreground">Projects</h1>
+        <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Projects</h1>
         <p className="mt-2 text-base text-muted-foreground">Things I&apos;ve built</p>
       </div>
 

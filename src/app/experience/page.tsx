@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
       <div className="mb-8 border-b border-border pb-8">
-        <h1 className="text-4xl font-semibold text-foreground">Experience</h1>
+        <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Experience</h1>
         <p className="mt-2 text-base text-muted-foreground">Where I&apos;ve worked</p>
       </div>
 
@@ -28,13 +28,13 @@ export default function ExperiencePage() {
               <div className="h-4 w-4 rounded-full border-2 border-primary bg-card" />
             </div>
 
-            <Card className="border-border bg-card p-6 transition-colors hover:bg-muted/50">
+            <Card className="border-border bg-card p-4 sm:p-6 transition-colors hover:bg-muted/50">
               <div className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">{exp.role}</h3>
                   <p className="mt-1 text-base text-primary">{exp.company}</p>
                 </div>
-                <span className="shrink-0 text-sm text-muted-foreground">{exp.period}</span>
+                <span className="shrink-0 text-xs md:text-sm text-muted-foreground">{exp.period}</span>
               </div>
               <p className="mt-4 text-base leading-relaxed text-text-secondary">{exp.description}</p>
 

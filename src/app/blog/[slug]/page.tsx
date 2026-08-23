@@ -41,7 +41,7 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
       <Link
         href="/blog"
         className="mb-6 flex items-center gap-2 text-base text-muted-foreground transition-colors hover:text-foreground"
@@ -52,7 +52,7 @@ export default async function BlogPostPage({
         Back to blog
       </Link>
 
-      <div className="relative mb-8 h-80 w-full overflow-hidden rounded-lg">
+      <div className="relative mb-8 h-48 sm:h-64 md:h-80 w-full overflow-hidden rounded-lg">
         <Image
           src={post.coverImage}
           alt={post.title}
@@ -63,11 +63,11 @@ export default async function BlogPostPage({
       </div>
 
       <div className="mb-8 border-b border-border pb-8">
-        <h1 className="text-4xl font-semibold text-foreground">{post.title}</h1>
+        <h1 className="text-3xl font-semibold text-foreground md:text-4xl">{post.title}</h1>
         <p className="mt-2 text-base text-muted-foreground">{post.date}</p>
       </div>
 
-      <Card className="border-border bg-card p-8">
+      <Card className="border-border bg-card p-4 sm:p-6 md:p-8">
         <div className="prose prose-invert prose-base max-w-none">
           <Markdown content={post.content} />
         </div>
