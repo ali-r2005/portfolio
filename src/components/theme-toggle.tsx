@@ -1,14 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(true)
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark")
-    setDark(isDark)
-  }, [])
+  const [dark, setDark] = useState(() => {
+    if (typeof document !== "undefined") {
+      return document.documentElement.classList.contains("dark")
+    }
+    return true
+  })
 
   function toggle(e: React.MouseEvent) {
     e.stopPropagation()

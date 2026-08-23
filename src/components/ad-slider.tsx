@@ -9,16 +9,8 @@ const ads = [
     alt: "Ad 1",
   },
   {
-    image: "https://picsum.photos/seed/ad2/600/1200",
-    alt: "Ad 2",
-  },
-  {
-    image: "https://picsum.photos/seed/ad3/600/1200",
-    alt: "Ad 3",
-  },
-  {
     image: "/ad2.png",
-    alt: "Ad 4",
+    alt: "Ad 2",
   },
 ]
 
@@ -33,7 +25,7 @@ export function AdSlider() {
   }, [])
 
   return (
-    <div className="relative aspect-[1/2] overflow-hidden rounded-xl border border-border bg-muted">
+    <div className="relative aspect-[1/2] max-h-[510px] overflow-hidden rounded-xl border border-border bg-muted">
       {ads.map((ad, i) => (
         <div
           key={ad.image}

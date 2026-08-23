@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
@@ -59,10 +58,10 @@ export default function HomePage() {
 
           {/* About Me Section */}
           <div className="mb-8 border-b border-border pb-8">
-            <div className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            <h2 className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               <span className="h-4 w-4 rounded-full bg-primary" />
               About Me
-            </div>
+            </h2>
             <Card className="border-border bg-card p-8">
               <p className="text-lg leading-relaxed text-foreground">
                 I&apos;m a software engineer who enjoys turning ideas into real products. I like understanding
@@ -84,15 +83,15 @@ export default function HomePage() {
         {/* Right Sidebar — Ads */}
         <aside className="hidden w-72 shrink-0 pt-8 xl:block">
           <div className="sticky top-8 flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               <span className="h-4 w-4 rounded-full bg-primary" />
               Ads
-            </div>
+            </h2>
             <AdSlider />
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               <span className="h-4 w-4 rounded-full bg-primary" />
               Quick Links
-            </div>
+            </h2>
             <div className="grid grid-cols-2 gap-3">
               <a
                 href="https://github.com/dev"
