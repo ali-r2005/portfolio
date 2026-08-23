@@ -52,8 +52,8 @@ export default function ContactPage() {
 
       <div className="grid gap-6 md:grid-cols-2 md:gap-8">
         <Card className="border-border bg-card">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-base font-semibold text-foreground">Send a message</CardTitle>
+          <CardHeader>
+            <h2 className="text-lg md:text-xl font-semibold text-foreground">Send a message</h2>
           </CardHeader>
           <CardContent className="pt-2">
             <ContactForm />
@@ -62,8 +62,8 @@ export default function ContactPage() {
 
         <div className="space-y-6">
           <Card className="border-border bg-card">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-base font-semibold text-foreground">Social Links</CardTitle>
+            <CardHeader>
+              <h2 className="text-lg md:text-xl font-semibold text-foreground">Social Links</h2>
             </CardHeader>
             <CardContent className="space-y-3 pt-2">
               {socialLinks.map((link) => (
@@ -82,8 +82,8 @@ export default function ContactPage() {
           </Card>
 
           <Card className="border-border bg-card">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-base font-semibold text-foreground">Email</CardTitle>
+            <CardHeader>
+              <h2 className="text-lg md:text-xl font-semibold text-foreground">Email</h2>
             </CardHeader>
             <CardContent className="pt-2">
               <a
