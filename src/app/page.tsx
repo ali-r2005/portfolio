@@ -12,6 +12,11 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const aboutMe = [
+    "I'm a software engineer who enjoys turning ideas into real products. I like understanding problems from both the technical and business perspectives before designing solutions that are scalable, maintainable, and practical.",
+    "Over the past few years I've worked across the full stack, but recently I've been deeply focused on the JavaScript and TypeScript ecosystem, building modern web applications, automation platforms, and developer tools. Whether it's designing an API, architecting a system, or refining a user experience, I enjoy building software that solves real world problems and continuously learning better ways to do it."
+  ]
+
   return (
     <div className="w-full">
       {/* Banner Section */}
@@ -63,18 +68,11 @@ export default function HomePage() {
               About Me
             </h2>
             <Card className="border-border bg-card p-4 sm:p-6 md:p-8">
-              <p className="text-lg leading-relaxed text-foreground">
-                I&apos;m a software engineer who enjoys turning ideas into real products. I like understanding
-                problems from both the technical and business perspectives before designing solutions that
-                are scalable, maintainable, and practical.
-              </p>
-              <p className="mt-6 text-lg leading-relaxed text-text-secondary">
-                Over the past few years I&apos;ve worked across the full stack, but recently I&apos;ve been
-                deeply focused on the JavaScript and TypeScript ecosystem, building modern web applications,
-                automation platforms, and developer tools. Whether it&apos;s designing an API, architecting a
-                system, or refining a user experience, I enjoy building software that solves real world
-                problems and continuously learning better ways to do it.
-              </p>
+              {aboutMe.map((paragraph, index) => (
+                <p key={index} className="md:text-lg text-base leading-relaxed text-foreground">
+                  {paragraph}
+                </p>
+              ))}
             </Card>
           </div>
 

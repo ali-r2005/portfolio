@@ -65,14 +65,14 @@ export default function ContactPage() {
             <CardHeader>
               <h2 className="text-lg md:text-xl font-semibold text-foreground">Social Links</h2>
             </CardHeader>
-            <CardContent className="space-y-3 pt-2">
+            <CardContent className="space-y-2 pt-2">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 rounded-lg px-4 py-3 text-base text-text-secondary transition-colors hover:bg-muted hover:text-foreground"
+                  className="flex items-center gap-4 rounded-lg px-4 py-2 text-base text-text-secondary transition-colors hover:bg-muted hover:text-foreground"
                 >
                   <span className="text-primary">{link.icon}</span>
                   {link.label}
