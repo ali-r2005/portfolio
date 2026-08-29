@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE_URL,
   },
+  verification: {
+    google: "67JqrtGmsNlwWPMETTnPthV9l5FDbHfdUVRbV7n-qFA",
+  },
 }
 
 export default function HomePage() {
