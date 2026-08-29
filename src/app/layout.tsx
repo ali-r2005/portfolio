@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { ServerSidebar } from "@/components/layout/server-sidebar"
 import "./globals.css"
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="flex h-full overflow-hidden">
         <TooltipProvider>
           <ServerSidebar />
+          <GoogleAnalytics gaId="G-JPM5BQYX6D" />
           <main className="flex-1 overflow-y-auto bg-background">
             {children}
           </main>
