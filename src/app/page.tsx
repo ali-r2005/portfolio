@@ -56,7 +56,7 @@ export default function HomePage() {
                 <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Ali Rami</h1>
                 <Badge variant="secondary" className="bg-muted text-xs text-muted-foreground">he/him</Badge>
               </div>
-              <p className="text-base text-muted-foreground">Software Developer</p>
+              <h2 className="text-base text-muted-foreground">Full-Stack & Business Automation</h2>
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-success" />
                 <span className="text-sm text-muted-foreground">Online</span>
