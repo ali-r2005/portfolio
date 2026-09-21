@@ -317,15 +317,9 @@ Status: Viewed by Client (Instant Tracking)`,
       <div className="border-b border-border pb-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <div className="flex items-center gap-3">
-              <h1 className="text-3xl font-semibold text-foreground md:text-4xl">
-                Services & Automation
-              </h1>
-              <Badge variant="secondary" className="bg-muted text-xs text-muted-foreground">
-                <span className="mr-1.5 h-2 w-2 rounded-full bg-success" />
-                Available
-              </Badge>
-            </div>
+            <h1 className="text-3xl font-semibold text-foreground md:text-4xl">
+              Services & Automation
+            </h1>
             <p className="mt-2 text-base text-muted-foreground">
               Full-Stack Next.js development & business workflow automation
             </p>
@@ -351,14 +345,6 @@ Status: Viewed by Client (Instant Tracking)`,
       <section>
         <Card className="border-border bg-card p-6 md:p-8 transition-colors hover:bg-muted/30">
           <div className="space-y-6">
-            {/* Live Availability Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-sidebar px-3 py-1 text-xs font-medium text-text-secondary">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-              </span>
-              Available for Freelance & Contract Projects
-            </div>
 
             {/* Main Headline */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-snug">
