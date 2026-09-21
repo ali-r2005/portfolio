@@ -4,8 +4,11 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { AdSlider } from "@/components/ad-slider"
 import { BASE_URL } from "@/lib/constants"
+import { JsonLd } from "@/components/json-ld"
 
 export const metadata: Metadata = {
+  title: "Ali Rami — Full-Stack & Business Automation",
+  description: "Full-Stack Developer & Business Automation Specialist portfolio showcasing projects, experience, and developer insights.",
   alternates: {
     canonical: BASE_URL,
   },
@@ -15,6 +18,34 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${BASE_URL}/#person`,
+        "name": "Ali Rami",
+        "jobTitle": "Full-Stack & Business Automation Specialist",
+        "url": BASE_URL,
+        "sameAs": [
+          "https://github.com/ali-r2005",
+          "https://www.linkedin.com/in/ali-rami-63a998338"
+        ],
+        "email": "mailto:ali.rami.6699@gmail.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${BASE_URL}/#website`,
+        "url": BASE_URL,
+        "name": "Ali Rami Portfolio",
+        "description": "Full-Stack Developer & Business Automation Specialist portfolio showcasing web development projects, technical experience, and insights.",
+        "publisher": {
+          "@id": `${BASE_URL}/#person`
+        }
+      }
+    ]
+  }
+
   const aboutMe = [
     "I'm a software engineer who enjoys turning ideas into real products. I like understanding problems from both the technical and business perspectives before designing solutions that are scalable, maintainable, and practical.",
     "Over the past few years I've worked across the full stack, but recently I've been deeply focused on the JavaScript and TypeScript ecosystem, building modern web applications, automation platforms, and developer tools. Whether it's designing an API, architecting a system, or refining a user experience, I enjoy building software that solves real world problems and continuously learning better ways to do it."
@@ -22,6 +53,7 @@ export default function HomePage() {
 
   return (
     <div className="w-full">
+      <JsonLd data={jsonLdData} />
       {/* Banner Section */}
       <div className="relative h-40 sm:h-56 md:h-64 w-full overflow-hidden bg-muted">
         <Image

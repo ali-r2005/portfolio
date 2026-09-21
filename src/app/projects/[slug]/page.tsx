@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card"
 import { projects } from "@/data/projects"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
 }
@@ -15,11 +17,35 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const project = projects.find((p) => p.slug === slug)
   if (!project) return {}
+
+  const imageUrl = project.image
+    ? project.image.startsWith("http")
+      ? project.image
+      : `${BASE_URL}${project.image}`
+    : `${BASE_URL}/og-image.png`
+
   return {
-    title: `${project.title} — Projects`,
+    title: project.title,
     description: project.description,
     alternates: {
       canonical: `${BASE_URL}/projects/${project.slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | Ali Rami Projects`,
+      description: project.description,
+      url: `${BASE_URL}/projects/${project.slug}`,
+      images: [
+        {
+          url: imageUrl,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Ali Rami Projects`,
+      description: project.description,
+      images: [imageUrl],
     },
   }
 }
@@ -29,8 +55,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = projects.find((p) => p.slug === slug)
   if (!project) notFound()
 
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": project.title,
+    "description": project.description,
+    "url": `${BASE_URL}/projects/${project.slug}`,
+    "applicationCategory": "DeveloperApplication",
+    "author": {
+      "@type": "Person",
+      "name": "Ali Rami",
+      "url": BASE_URL,
+    },
+    ...(project.image && {
+      "image": project.image.startsWith("http") ? project.image : `${BASE_URL}${project.image}`
+    })
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <Link
         href="/projects"
         className="mb-6 flex items-center gap-2 text-base text-muted-foreground transition-colors hover:text-foreground"

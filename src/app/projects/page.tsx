@@ -5,15 +5,48 @@ import { Badge } from "@/components/ui/badge"
 import { projects } from "@/data/projects"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export const metadata: Metadata = {
+  title: "Projects",
+  description: "Portfolio of software applications, web projects, automation systems, and developer tools built by Ali Rami.",
   alternates: {
     canonical: `${BASE_URL}/projects`,
+  },
+  openGraph: {
+    title: "Projects | Ali Rami",
+    description: "Portfolio of software applications, web projects, automation systems, and developer tools built by Ali Rami.",
+    url: `${BASE_URL}/projects`,
   },
 }
 
 export default function ProjectsPage() {
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Ali Rami's Projects",
+    "description": "Portfolio of software applications, web projects, automation systems, and developer tools.",
+    "url": `${BASE_URL}/projects`,
+    "itemListElement": projects.map((project, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": project.title,
+        "description": project.description,
+        "url": `${BASE_URL}/projects/${project.slug}`,
+        "applicationCategory": "DeveloperApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Ali Rami"
+        }
+      }
+    }))
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <div className="mb-8 border-b border-border pb-8">
         <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Projects</h1>
         <p className="mt-2 text-base text-muted-foreground">Things I&apos;ve built</p>

@@ -5,15 +5,47 @@ import { Card } from "@/components/ui/card"
 import { experience } from "@/data/experience"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export const metadata: Metadata = {
+  title: "Experience",
+  description: "Professional background, software engineering roles, key responsibilities, and achievements of Ali Rami.",
   alternates: {
     canonical: `${BASE_URL}/experience`,
+  },
+  openGraph: {
+    title: "Experience | Ali Rami",
+    description: "Professional background, software engineering roles, key responsibilities, and achievements of Ali Rami.",
+    url: `${BASE_URL}/experience`,
   },
 }
 
 export default function ExperiencePage() {
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Ali Rami's Work Experience",
+    "url": `${BASE_URL}/experience`,
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Ali Rami",
+      "jobTitle": "Full-Stack & Business Automation Specialist",
+      "url": BASE_URL,
+      "hasOccupation": experience.map((exp) => ({
+        "@type": "Occupation",
+        "name": exp.role,
+        "occupationLocation": {
+          "@type": "Organization",
+          "name": exp.company
+        },
+        "description": exp.description
+      }))
+    }
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <div className="mb-8 border-b border-border pb-8">
         <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Experience</h1>
         <p className="mt-2 text-base text-muted-foreground">Where I&apos;ve worked</p>

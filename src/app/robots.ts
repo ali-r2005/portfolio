@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { BASE_URL } from "@/lib/constants"
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/static/"],
     },
-    sitemap: "https://portfolio-tan-six-064qa7n1jx.vercel.app/sitemap.xml",
+    sitemap: `${BASE_URL}/sitemap.xml`,
   }
 }

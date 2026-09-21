@@ -7,6 +7,8 @@ import { getAllPostSlugs, getPostData } from "@/lib/posts"
 import { Markdown } from "@/components/markdown"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }))
 }
@@ -17,11 +19,43 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostData(slug)
+  let post
+  try {
+    post = getPostData(slug)
+  } catch {
+    return {
+      title: "Post Not Found",
+    }
+  }
+
+  const imageUrl = post.coverImage.startsWith("http")
+    ? post.coverImage
+    : `${BASE_URL}${post.coverImage}`
+
   return {
     title: post.title,
+    description: post.excerpt,
     alternates: {
       canonical: `${BASE_URL}/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Ali Rami"],
+      images: [
+        {
+          url: imageUrl,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [imageUrl],
     },
   }
 }
@@ -40,8 +74,33 @@ export default async function BlogPostPage({
     notFound()
   }
 
+  const imageUrl = post.coverImage.startsWith("http")
+    ? post.coverImage
+    : `${BASE_URL}${post.coverImage}`
+
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.date,
+    "url": `${BASE_URL}/blog/${post.slug}`,
+    "image": imageUrl,
+    "author": {
+      "@type": "Person",
+      "name": "Ali Rami",
+      "url": BASE_URL,
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ali Rami",
+      "url": BASE_URL,
+    },
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <Link
         href="/blog"
         className="mb-6 flex items-center gap-2 text-base text-muted-foreground transition-colors hover:text-foreground"

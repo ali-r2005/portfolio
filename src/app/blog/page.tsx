@@ -5,17 +5,43 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getSortedPostsData } from "@/lib/posts"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export const metadata: Metadata = {
+  title: "Blog",
+  description: "Articles, tutorials, and technical thoughts on full-stack development, business automation, and software engineering by Ali Rami.",
   alternates: {
     canonical: `${BASE_URL}/blog`,
+  },
+  openGraph: {
+    title: "Blog | Ali Rami",
+    description: "Articles, tutorials, and technical thoughts on full-stack development, business automation, and software engineering by Ali Rami.",
+    url: `${BASE_URL}/blog`,
   },
 }
 
 export default function BlogPage() {
   const posts = getSortedPostsData()
 
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Ali Rami's Blog",
+    "description": "Articles, tutorials, and technical thoughts on full-stack development, business automation, and software engineering.",
+    "url": `${BASE_URL}/blog`,
+    "blogPost": posts.map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "url": `${BASE_URL}/blog/${post.slug}`,
+      "image": post.coverImage.startsWith("http") ? post.coverImage : `${BASE_URL}${post.coverImage}`
+    }))
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <div className="mb-8 border-b border-border pb-8">
         <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Blog</h1>
         <p className="mt-2 text-base text-muted-foreground">Articles and thoughts</p>

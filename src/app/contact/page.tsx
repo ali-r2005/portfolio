@@ -3,9 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Ali Rami for full-stack web development projects, business automation solutions, and technical inquiries.",
   alternates: {
     canonical: `${BASE_URL}/contact`,
+  },
+  openGraph: {
+    title: "Contact | Ali Rami",
+    description: "Get in touch with Ali Rami for full-stack web development projects, business automation solutions, and technical inquiries.",
+    url: `${BASE_URL}/contact`,
   },
 }
 
@@ -43,8 +52,23 @@ const socialLinks = [
 ]
 
 export default function ContactPage() {
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Ali Rami",
+    "description": "Get in touch with Ali Rami for full-stack web development projects, business automation solutions, and technical inquiries.",
+    "url": `${BASE_URL}/contact`,
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Ali Rami",
+      "email": `mailto:${email}`,
+      "sameAs": socialLinks.map((l) => l.href)
+    }
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <div className="mb-8 border-b border-border pb-8">
         <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Contact</h1>
         <p className="mt-2 text-base text-muted-foreground">Send me a message</p>

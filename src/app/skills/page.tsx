@@ -4,15 +4,40 @@ import { Badge } from "@/components/ui/badge"
 import { skills } from "@/data/skills"
 import { BASE_URL } from "@/lib/constants"
 
+import { JsonLd } from "@/components/json-ld"
+
 export const metadata: Metadata = {
+  title: "Skills",
+  description: "Technical skills, programming languages, frameworks, databases, and automation tools utilized by Ali Rami.",
   alternates: {
     canonical: `${BASE_URL}/skills`,
+  },
+  openGraph: {
+    title: "Skills | Ali Rami",
+    description: "Technical skills, programming languages, frameworks, databases, and automation tools utilized by Ali Rami.",
+    url: `${BASE_URL}/skills`,
   },
 }
 
 export default function SkillsPage() {
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Ali Rami's Technical Skills",
+    "description": "Comprehensive list of technical skills, frameworks, languages, and automation tools.",
+    "url": `${BASE_URL}/skills`,
+    "itemListElement": skills.flatMap((group, groupIdx) =>
+      group.items.map((skill, itemIdx) => ({
+        "@type": "ListItem",
+        "position": groupIdx * 10 + itemIdx + 1,
+        "name": `${skill} (${group.category})`
+      }))
+    )
+  }
+
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <JsonLd data={jsonLdData} />
       <div className="mb-8 border-b border-border pb-8">
         <h1 className="text-3xl md:text-4xl font-semibold text-foreground">Skills</h1>
         <p className="mt-2 text-base text-muted-foreground">Technologies I work with</p>

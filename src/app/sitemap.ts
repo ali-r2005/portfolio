@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { getSortedPostsData } from "@/lib/posts"
 import { projects } from "@/data/projects"
 
-const BASE_URL = "https://portfolio-tan-six-064qa7n1jx.vercel.app"
+import { BASE_URL } from "@/lib/constants"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [
