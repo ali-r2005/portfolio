@@ -17,12 +17,14 @@ import {
   WrenchScrewdriverIcon,
   EnvelopeIcon,
   PencilSquareIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline"
 
 const iconClass = "size-5"
 
 const servers = [
   { label: "Home", icon: <HomeIcon className={iconClass} />, href: "/" },
+  { label: "Services", icon: <SparklesIcon className={iconClass} />, href: "/services" },
   { label: "Projects", icon: <CommandLineIcon className={iconClass} />, href: "/projects" },
   { label: "Experience", icon: <BriefcaseIcon className={iconClass} />, href: "/experience" },
   { label: "Skills", icon: <WrenchScrewdriverIcon className={iconClass} />, href: "/skills" },
