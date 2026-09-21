@@ -95,7 +95,7 @@ export default function HomePage() {
             </h2>
             <div className="grid grid-cols-2 gap-3">
               <a
-                href="https://github.com/dev"
+                href="https://github.com/ali-r2005"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#5865f2]/50 hover:shadow-[0_0_20px_-5px_#5865f2]"
@@ -109,12 +109,12 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <p className="text-[12px] font-semibold text-foreground">GitHub</p>
-                    <p className="text-[11px] text-muted-foreground">@dev</p>
+                    <p className="text-[11px] text-muted-foreground">@ali-r2005</p>
                   </div>
                 </div>
               </a>
               <a
-                href="https://linkedin.com/in/dev"
+                href="https://www.linkedin.com/in/ali-rami-63a998338"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0a66c2]/50 hover:shadow-[0_0_20px_-5px_#0a66c2]"
@@ -129,7 +129,7 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <p className="text-[12px] font-semibold text-foreground">LinkedIn</p>
-                    <p className="text-[11px] text-muted-foreground">/in/dev</p>
+                    <p className="text-[11px] text-muted-foreground">Ali Rami</p>
                   </div>
                 </div>
               </a>
