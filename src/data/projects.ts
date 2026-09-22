@@ -53,9 +53,7 @@ export const projects: Project[] = [
     tech: ["n8n", "REST API", "Webhooks", "AI", "CRM"],
 
     images: [
-      "/diagram.jpg",
-      "https://picsum.photos/seed/sales-automation-2/1200/675",
-      "https://picsum.photos/seed/sales-automation-3/1200/675",
+      "/sales-automation/lead-gateway.png"
     ],
 
     github: "",

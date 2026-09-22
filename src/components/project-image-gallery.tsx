@@ -20,7 +20,7 @@ export function ProjectImageGallery({ images, alt }: ProjectImageGalleryProps) {
   return (
     <div className="mb-8">
       <div className="relative h-72 w-full overflow-hidden rounded-lg border border-border bg-muted sm:h-96 md:h-[28rem]">
-        <Image src={images[current]} alt={`${alt} screenshot ${current + 1}`} fill className="object-cover" priority />
+        <Image src={images[current]} alt={`${alt} screenshot ${current + 1}`} fill className="object-contain" priority />
 
         {images.length > 1 && (
           <>
