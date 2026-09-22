@@ -4,7 +4,7 @@ export interface Project {
   lastModified: string
   description: string
   tech: string[]
-  image: string | null
+  images: string[]
   github: string
   live: string | null
   overview?: string
@@ -20,7 +20,11 @@ export const projects: Project[] = [
     description:
       "A template-driven proposal generation platform that renders dynamic HTML proposals for travel and event agencies, replacing traditional PowerPoint-based workflows.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
-    image: "/Proposal-os.png",
+    images: [
+      "/Proposal-os.png",
+      "https://picsum.photos/seed/proposal-os-2/1200/675",
+      "https://picsum.photos/seed/proposal-os-3/1200/675",
+    ],
     github: "",
     live: null,
 
@@ -48,7 +52,11 @@ export const projects: Project[] = [
 
     tech: ["n8n", "REST API", "Webhooks", "AI", "CRM"],
 
-    image: "/diagram.jpg",
+    images: [
+      "/diagram.jpg",
+      "https://picsum.photos/seed/sales-automation-2/1200/675",
+      "https://picsum.photos/seed/sales-automation-3/1200/675",
+    ],
 
     github: "",
 
@@ -80,7 +88,11 @@ export const projects: Project[] = [
 
     tech: ["FastAPI", "Python", "python-pptx"],
 
-    image: "/projects/slideforge.png",
+    images: [
+      "/projects/slideforge.png",
+      "https://picsum.photos/seed/slideforge-2/1200/675",
+      "https://picsum.photos/seed/slideforge-3/1200/675",
+    ],
 
     github: "",
 
@@ -122,7 +134,11 @@ export const projects: Project[] = [
       "JWT",
     ],
 
-    image: null,
+    images: [
+      "https://picsum.photos/seed/waitless-1/1200/675",
+      "https://picsum.photos/seed/waitless-2/1200/675",
+      "https://picsum.photos/seed/waitless-3/1200/675",
+    ],
 
     github: "",
 
@@ -153,7 +169,11 @@ export const projects: Project[] = [
 
     tech: ["Astro", "Tailwind CSS", "Cloudflare Workers"],
 
-    image: null,
+    images: [
+      "https://picsum.photos/seed/mawhois-1/1200/675",
+      "https://picsum.photos/seed/mawhois-2/1200/675",
+      "https://picsum.photos/seed/mawhois-3/1200/675",
+    ],
 
     github: "",
 

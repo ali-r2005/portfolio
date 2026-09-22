@@ -1,9 +1,9 @@
 import Link from "next/link"
-import Image from "next/image"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
+import { ProjectImageGallery } from "@/components/project-image-gallery"
 import { projects } from "@/data/projects"
 import { BASE_URL } from "@/lib/constants"
 
@@ -18,10 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = projects.find((p) => p.slug === slug)
   if (!project) return {}
 
-  const imageUrl = project.image
-    ? project.image.startsWith("http")
-      ? project.image
-      : `${BASE_URL}${project.image}`
+  const firstImage = project.images[0]
+  const imageUrl = firstImage
+    ? firstImage.startsWith("http")
+      ? firstImage
+      : `${BASE_URL}${firstImage}`
     : `${BASE_URL}/og-image.png`
 
   return {
@@ -67,8 +68,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       "name": "Ali Rami",
       "url": BASE_URL,
     },
-    ...(project.image && {
-      "image": project.image.startsWith("http") ? project.image : `${BASE_URL}${project.image}`
+    ...(project.images[0] && {
+      "image": project.images[0].startsWith("http") ? project.images[0] : `${BASE_URL}${project.images[0]}`
     })
   }
 
@@ -85,11 +86,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         Back to projects
       </Link>
 
-      {project.image && (
-        <div className="relative mb-8 h-48 sm:h-64 md:h-80 w-full overflow-hidden rounded-lg">
-          <Image src={project.image} alt={project.title} fill className="object-cover" priority />
-        </div>
-      )}
+      <ProjectImageGallery images={project.images} alt={project.title} />
 
       <div className="mb-8 border-b border-border pb-8">
         <h1 className="text-3xl font-semibold text-foreground md:text-4xl">{project.title}</h1>
