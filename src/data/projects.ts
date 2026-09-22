@@ -53,7 +53,13 @@ export const projects: Project[] = [
     tech: ["n8n", "REST API", "Webhooks", "AI", "CRM"],
 
     images: [
-      "/sales-automation/lead-gateway.png"
+      "/sales-automation/lead-gateway.png",
+      "/sales-automation/wf1.1.png",
+      "/sales-automation/lead-scoring.png",
+      "/sales-automation/lead-followup.png",
+      "/sales-automation/lead-whatsapp.png",
+      "/sales-automation/lead-form.png",
+      "/sales-automation/lead-alert.png",
     ],
 
     github: "",
