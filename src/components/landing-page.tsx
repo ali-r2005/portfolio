@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { sendContactEmail } from "@/app/contact/actions"
 import {
   ExclamationTriangleIcon,
@@ -785,19 +786,23 @@ Status: Viewed by Client (Instant Tracking)`,
                 <label htmlFor="landing-projectType" className="mb-1 md:mb-2 block text-sm font-medium text-foreground">
                   Project Type <span className="text-destructive">*</span>
                 </label>
-                <select
+                <Select
                   id="landing-projectType"
                   required
                   value={formData.projectType}
-                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full rounded-md border border-border bg-input px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  onValueChange={(value) => value && setFormData({ ...formData, projectType: value })}
                 >
-                  <option value="Full Next.js Web Application">Full Next.js Web Application</option>
-                  <option value="n8n Automation Engine">n8n Automation Engine</option>
-                  <option value="CRM / ERPNext Integration">CRM / ERPNext Integration</option>
-                  <option value="WordPress Migration">WordPress Migration</option>
-                  <option value="Other / Consult">Other / Consult</option>
-                </select>
+                  <SelectTrigger id="landing-projectType">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Full Next.js Web Application">Full Next.js Web Application</SelectItem>
+                    <SelectItem value="n8n Automation Engine">n8n Automation Engine</SelectItem>
+                    <SelectItem value="CRM / ERPNext Integration">CRM / ERPNext Integration</SelectItem>
+                    <SelectItem value="WordPress Migration">WordPress Migration</SelectItem>
+                    <SelectItem value="Other / Consult">Other / Consult</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div>
