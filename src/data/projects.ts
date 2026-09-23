@@ -22,8 +22,10 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
     images: [
       "/proposal/Proposal-os.png",
-      "https://picsum.photos/seed/proposal-os-2/1200/675",
-      "https://picsum.photos/seed/proposal-os-3/1200/675",
+      "/proposal/Proposal-os-template-form.png",
+      "/proposal/Proposal-os-template-history.png",
+      "/proposal/Proposal-os-proposal-preview.png",
+      "/proposal/WYSIWYG-Editor.png",
     ],
     github: "https://github.com/ali-r2005/ProposalOS",
     live: null,
@@ -45,7 +47,7 @@ export const projects: Project[] = [
   },
   {
     title: "Sales Automation Workflows",
-    slug: "sales-automation-platform",
+    slug: "sales-automation-workflows",
     lastModified: "2026-07-05",
     description:
       "A set of n8n automation workflows integrated with Frappe CRM and ERPNext via API to automate lead acquisition, scoring, and follow-up, paired with a custom CRM button that triggers ProposalOS for quotation generation.",
@@ -83,39 +85,6 @@ export const projects: Project[] = [
       "n8n workflows handle lead intake, scoring, and communication, syncing data into Frappe CRM and ERPNext over their REST APIs. A custom button added to Frappe CRM calls the ProposalOS app directly with the gathered lead data to generate a quotation — this integration is separate from the n8n automation layer.",
   },
   {
-    title: "SlideForge",
-    slug: "slideforge",
-    lastModified: "2026-06-18",
-
-    description:
-      "A FastAPI service for generating commercial PowerPoint proposals dynamically using PPTX templates.",
-
-    tech: ["FastAPI", "Python", "python-pptx"],
-
-    images: [
-      "/projects/slideforge.png",
-      "https://picsum.photos/seed/slideforge-2/1200/675",
-      "https://picsum.photos/seed/slideforge-3/1200/675",
-    ],
-
-    github: "",
-
-    live: null,
-
-    overview:
-      "SlideForge was developed to automate proposal generation by editing PowerPoint templates programmatically. During development, limitations in PPTX manipulation led to a complete redesign of the proposal generation architecture.",
-
-    features: [
-      "Dynamic PPTX generation",
-      "Template manipulation",
-      "Automated proposal creation",
-      "Backend API",
-    ],
-
-    architecture:
-      "FastAPI receives proposal data and modifies PowerPoint templates before exporting finished presentations.",
-  },
-  {
     title: "Waitless",
     slug: "waitless",
     lastModified: "2026-07-28",
@@ -144,7 +113,7 @@ export const projects: Project[] = [
       "https://picsum.photos/seed/waitless-3/1200/675",
     ],
 
-    github: "",
+    github: "https://github.com/ali-r2005/Waitless",
 
     live: null,
 
@@ -174,9 +143,7 @@ export const projects: Project[] = [
     tech: ["Astro", "Tailwind CSS", "Cloudflare Workers"],
 
     images: [
-      "https://picsum.photos/seed/mawhois-1/1200/675",
-      "https://picsum.photos/seed/mawhois-2/1200/675",
-      "https://picsum.photos/seed/mawhois-3/1200/675",
+      "/ma-whois.png"
     ],
 
     github: "",
