@@ -21,11 +21,11 @@ export const projects: Project[] = [
       "A template-driven proposal generation platform that renders dynamic HTML proposals for travel and event agencies, replacing traditional PowerPoint-based workflows.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
     images: [
-      "/Proposal-os.png",
+      "/proposal/Proposal-os.png",
       "https://picsum.photos/seed/proposal-os-2/1200/675",
       "https://picsum.photos/seed/proposal-os-3/1200/675",
     ],
-    github: "",
+    github: "https://github.com/ali-r2005/ProposalOS",
     live: null,
 
     overview:
@@ -44,13 +44,13 @@ export const projects: Project[] = [
       "Frontend built with Next.js renders reusable HTML templates. Dynamic proposal data is injected into components before rendering, allowing proposals to be customized without modifying the underlying layout.",
   },
   {
-    title: "Sales Automation Platform",
+    title: "Sales Automation Workflows",
     slug: "sales-automation-platform",
     lastModified: "2026-07-05",
     description:
-      "Designed an end-to-end sales automation architecture using n8n to automate lead acquisition, qualification, follow-up, notifications, and proposal generation.",
+      "A set of n8n automation workflows integrated with Frappe CRM and ERPNext via API to automate lead acquisition, scoring, and follow-up, paired with a custom CRM button that triggers ProposalOS for quotation generation.",
 
-    tech: ["n8n", "REST API", "Webhooks", "AI", "CRM"],
+    tech: ["n8n", "Frappe CRM", "ERPNext", "REST API", "Webhooks", "CRM"],
 
     images: [
       "/sales-automation/lead-gateway.png",
@@ -60,6 +60,7 @@ export const projects: Project[] = [
       "/sales-automation/lead-whatsapp.png",
       "/sales-automation/lead-form.png",
       "/sales-automation/lead-alert.png",
+      "/sales-automation/frappe-crm.png"
     ],
 
     github: "",
@@ -67,20 +68,19 @@ export const projects: Project[] = [
     live: null,
 
     overview:
-      "Designed a workflow-based automation platform that manages the entire customer journey from lead acquisition to quotation generation. The architecture integrates multiple lead sources, CRM synchronization, automated scoring, follow-up campaigns, and KPI tracking.",
+      "Built multiple n8n workflows to automate lead capture, scoring, and follow-up, connected to a Frappe CRM and ERPNext setup through their APIs. Leads are qualified automatically by the workflows and manually through calls or meetings, with data gathered from both feeding into the CRM. A custom button was added to Frappe CRM that generates a quotation through ProposalOS (a separate proposal generation app) using the collected lead data — this step is triggered manually from the CRM and is not part of the n8n workflows.",
 
     features: [
-      "Multi-channel lead capture",
+      "Multi-channel lead capture via n8n",
       "Automatic lead scoring",
-      "CRM synchronization",
-      "WhatsApp & Email follow-up",
+      "Frappe CRM & ERPNext synchronization via API",
+      "WhatsApp & Email follow-up automation",
       "Hot lead notifications",
-      "Quotation generation workflow",
-      "Sales KPI dashboard",
+      "Custom CRM button to generate quotations through ProposalOS",
     ],
 
     architecture:
-      "Five interconnected n8n workflows process incoming leads, calculate lead scores, automate communications, notify sales teams, and trigger proposal generation while updating the CRM.",
+      "n8n workflows handle lead intake, scoring, and communication, syncing data into Frappe CRM and ERPNext over their REST APIs. A custom button added to Frappe CRM calls the ProposalOS app directly with the gathered lead data to generate a quotation — this integration is separate from the n8n automation layer.",
   },
   {
     title: "SlideForge",
