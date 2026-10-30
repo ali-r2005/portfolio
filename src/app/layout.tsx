@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { ServerSidebar } from "@/components/layout/server-sidebar"
+import { Navbar } from "@/components/layout/navbar"
 import "./globals.css"
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -60,13 +60,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} dark min-h-full antialiased`}
     >
-      <body className="flex h-full overflow-hidden">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         <TooltipProvider>
-          <ServerSidebar />
+          <Navbar />
           <GoogleAnalytics gaId="G-JPM5BQYX6D" />
-          <main className="flex-1 overflow-y-auto bg-background">
+          <main className="flex-1">
             {children}
           </main>
         </TooltipProvider>
