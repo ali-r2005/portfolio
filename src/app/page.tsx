@@ -88,13 +88,6 @@ export default function HomePage() {
             <h2 className="text-base text-muted-foreground">Full-Stack & Business Automation</h2>
             
             <div className="flex flex-wrap items-center gap-4 pt-1">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-success" />
-                <span className="text-sm text-muted-foreground">Online</span>
-              </div>
-
-              <span className="text-border">|</span>
-
               <a
                 href="https://github.com/ali-r2005"
                 target="_blank"

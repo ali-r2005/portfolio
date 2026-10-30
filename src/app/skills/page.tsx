@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { TechIcon } from "@/components/ui/tech-icon"
 import { skills } from "@/data/skills"
 import { BASE_URL } from "@/lib/constants"
 
@@ -55,9 +56,10 @@ export default function SkillsPage() {
                   <Badge
                     key={skill}
                     variant="secondary"
-                    className="bg-sidebar p-2 text-sm sm:p-4 sm:text-base text-text-secondary"
+                    className="flex items-center gap-2 bg-sidebar p-2 text-sm sm:p-4 sm:text-base text-text-secondary"
                   >
-                    {skill}
+                    <TechIcon name={skill} className="size-4 sm:size-5 shrink-0" />
+                    <span>{skill}</span>
                   </Badge>
                 ))}
               </div>
