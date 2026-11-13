@@ -159,6 +159,56 @@
   --text-secondary: #d9ddbb;
 }
 
+/* ------------------------------------------------------------------
+ * Vintage Cinematica scale — exact Canva values at the 1366px artboard.
+ * Each value is fluid (vw) and clamps to the Canva size at >=1366px,
+ * so the page matches the template 1:1 at 1366 and scales down below.
+ * Verified by `npm run test:design` (scripts/design-match-test.mjs).
+ * ------------------------------------------------------------------ */
+@theme {
+  --text-display: clamp(3.25rem, 7.8086vw, 6.6666rem);      /* 106.67px */
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.05em;
+  --text-display--font-weight: 250;                          /* Canva "light" */
+  --text-quote: clamp(1.75rem, 3.1235vw, 2.6667rem);        /* 42.67px */
+  --text-quote--line-height: 1.1;
+  --text-quote--font-weight: 250;
+  --text-title: clamp(1.25rem, 2.0498vw, 1.75rem);          /* 28px */
+  --text-title--line-height: 1.2;
+  --text-lead: clamp(1.125rem, 1.757vw, 1.5rem);            /* 24px */
+  --text-lead--line-height: 1.3;
+  --text-copy: clamp(1rem, 1.5617vw, 1.3333rem);            /* 21.33px */
+  --text-copy--line-height: 1.2;
+  --text-button: clamp(1rem, 1.5617vw, 1.3333rem);          /* 21.33px */
+  --text-button--line-height: 1.4;
+  --text-button--letter-spacing: -0.02em;
+  --text-caption: clamp(0.9375rem, 1.3665vw, 1.1667rem);    /* 18.67px */
+  --text-caption--line-height: 1.2;
+}
+
+:root {
+  --cine-max: 1366px;                                   /* artboard width */
+  --cine-gutter: clamp(1.5rem, 7.3206vw, 6.25rem);      /* 100px side margin */
+  --cine-section-y: clamp(3.5rem, 5.6223vw, 4.8rem);    /* 76.8px title offset */
+  --cine-band: min(56.2225vw, 768px);                   /* 768px section height */
+  --cine-nav-top: clamp(0.75rem, 1.3666vw, 1.1667rem);  /* 18.67px */
+  --cine-nav-h: clamp(3rem, 4.2557vw, 3.6334rem);       /* 58.13px */
+  --cine-nav-w: min(78.961vw, 1078.6px);                /* 1078.6px */
+  --cine-nav-offset: calc(var(--cine-nav-top) + var(--cine-nav-h));
+  --cine-cta-w: clamp(16rem, 27.965vw, 23.875rem);      /* 382px */
+  --cine-btn-w: clamp(11rem, 17.034vw, 14.5429rem);     /* 232.7px */
+  --cine-btn-h: clamp(2.25rem, 2.9538vw, 2.5218rem);    /* 40.35px */
+  --cine-col: min(39.834vw, 544.13px);                  /* 544px text column */
+}
+
+/* Full-bleed band content box: 1366 max, 100px gutters */
+@utility cine-container {
+  width: 100%;
+  max-width: var(--cine-max);
+  margin-inline: auto;
+  padding-inline: var(--cine-gutter);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

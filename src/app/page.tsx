@@ -1,7 +1,9 @@
-import Image from "next/image"
 import type { Metadata } from "next"
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
+import { HeroSection } from "@/components/home/hero-section"
+import { AboutSection } from "@/components/home/about-section"
+import { ExperienceSection } from "@/components/home/experience-section"
+import { SkillsSection } from "@/components/home/skills-section"
+import { ContactSection } from "@/components/home/contact-section"
 import { BASE_URL } from "@/lib/constants"
 import { JsonLd } from "@/components/json-ld"
 
@@ -45,94 +47,14 @@ export default function HomePage() {
     ]
   }
 
-  const aboutMe = [
-    "I'm a software engineer who enjoys turning ideas into real products. I like understanding problems from both the technical and business perspectives before designing solutions that are scalable, maintainable, and practical.",
-    "Over the past few years I've worked across the full stack, but recently I've been deeply focused on the JavaScript and TypeScript ecosystem, building modern web applications, automation platforms, and developer tools. Whether it's designing an API, architecting a system, or refining a user experience, I enjoy building software that solves real world problems and continuously learning better ways to do it."
-  ]
-
   return (
-    <div className="w-full">
+    <>
       <JsonLd data={jsonLdData} />
-      {/* Banner Section */}
-      <div className="relative h-40 sm:h-56 md:h-64 w-full overflow-hidden bg-muted">
-        <Image
-          src="/380cd3195922117.66168b374f719.gif"
-          alt="Profile Banner"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      <div className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
-        {/* Profile Section */}
-        <div className="relative -mt-20 mb-12 flex flex-col gap-6">
-          {/* Profile Picture */}
-          <div className="relative">
-            <div className="relative h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 overflow-hidden rounded-2xl border-4 border-background shadow-lg">
-              <Image
-                src="/1.gif"
-                alt="Profile Picture"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Profile Info */}
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <h1 className="text-3xl font-semibold text-foreground md:text-4xl">Ali Rami</h1>
-              <Badge variant="secondary" className="bg-muted text-xs text-muted-foreground">he/him</Badge>
-            </div>
-            <h2 className="text-base text-muted-foreground">Full-Stack & Business Automation</h2>
-            
-            <div className="flex flex-wrap items-center gap-4 pt-1">
-              <a
-                href="https://github.com/ali-r2005"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-                <span>GitHub</span>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/ali-rami-63a998338"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* About Me Section */}
-        <div className="mb-8 border-b border-border pb-8">
-          <h2 className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            <span className="h-3.5 w-3.5 rounded-full bg-primary" />
-            About Me
-          </h2>
-          <Card className="border-border bg-card p-6 md:p-8">
-            <div className="space-y-4">
-              {aboutMe.map((paragraph, index) => (
-                <p key={index} className="text-base leading-relaxed text-foreground md:text-lg">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </Card>
-        </div>
-      </div>
-    </div>
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ContactSection />
+    </>
   )
 }

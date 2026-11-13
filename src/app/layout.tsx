@@ -1,19 +1,21 @@
 import type { Metadata } from "next"
-import { DM_Sans, Cormorant_Garamond, Geist_Mono } from "next/font/google"
+import { Work_Sans, Crimson_Pro, Geist_Mono } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/layout/navbar"
 import "./globals.css"
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const dmSans = DM_Sans({
+// Closest Google Fonts to the Canva template fonts, picked by pixel-matching
+// rendered text against the Canva export (see docs/design-system.md).
+const workSans = Work_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
 })
 
-const cormorant = Cormorant_Garamond({
+// Variable font: the display style uses weight 250 to match Canva's "light"
+const crimsonPro = Crimson_Pro({
   variable: "--font-serif-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
 })
 
 const geistMono = Geist_Mono({
@@ -66,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${cormorant.variable} ${geistMono.variable} dark min-h-full antialiased`}
+      className={`${workSans.variable} ${crimsonPro.variable} ${geistMono.variable} dark min-h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <TooltipProvider>
