@@ -1,13 +1,19 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { DM_Sans, Cormorant_Garamond, Geist_Mono } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/layout/navbar"
 import "./globals.css"
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const geistSans = Geist({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
+})
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-serif-display",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
 })
 
 const geistMono = Geist_Mono({
@@ -60,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark min-h-full antialiased`}
+      className={`${dmSans.variable} ${cormorant.variable} ${geistMono.variable} dark min-h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <TooltipProvider>
