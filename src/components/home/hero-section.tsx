@@ -13,7 +13,7 @@ export function HeroSection() {
       className="relative -mt-[var(--cine-nav-offset)] min-h-[max(100svh,var(--cine-band))] overflow-hidden bg-ink text-cream md:min-h-[var(--cine-band)]"
     >
       <Image
-        src="/home/hero-coffee.jpg"
+        src="/home/hero-coffee.png"
         alt=""
         fill
         priority
