@@ -1,5 +1,61 @@
+import type { ComponentType } from "react"
 import { skills } from "@/data/skills"
-import { TechIcon } from "@/components/ui/tech-icon"
+import {
+  CodeBracketIcon,
+  CodeBracketSquareIcon,
+  GlobeAltIcon,
+  PaintBrushIcon,
+  WindowIcon,
+  Square3Stack3DIcon,
+  ServerIcon,
+  ServerStackIcon,
+  CommandLineIcon,
+  BoltIcon,
+  CpuChipIcon,
+  CircleStackIcon,
+  CubeIcon,
+  Squares2X2Icon,
+  CloudIcon,
+  ArrowPathRoundedSquareIcon,
+  WrenchScrewdriverIcon,
+  ArrowsRightLeftIcon,
+  SignalIcon,
+  ShareIcon,
+  Square2StackIcon,
+} from "@heroicons/react/24/outline"
+
+export const skillIcons: Record<string, ComponentType<{ className?: string }>> = {
+  // Frontend
+  "React": CodeBracketIcon,
+  "Next.js": GlobeAltIcon,
+  "TypeScript": CodeBracketSquareIcon,
+  "Tailwind CSS": PaintBrushIcon,
+  "HTML/CSS": WindowIcon,
+  "Redux": Square3Stack3DIcon,
+
+  // Backend
+  "Node.js": ServerIcon,
+  "Go": CommandLineIcon,
+  "Python": BoltIcon,
+  "Rust": CpuChipIcon,
+  "PostgreSQL": CircleStackIcon,
+  "Redis": ServerStackIcon,
+
+  // DevOps & Tools
+  "Docker": CubeIcon,
+  "Kubernetes": Squares2X2Icon,
+  "AWS": CloudIcon,
+  "CI/CD": ArrowPathRoundedSquareIcon,
+  "Terraform": WrenchScrewdriverIcon,
+  "Linux": CommandLineIcon,
+
+  // Other
+  "gRPC": ArrowsRightLeftIcon,
+  "WebSocket": SignalIcon,
+  "GraphQL": ShareIcon,
+  "WebAssembly": CpuChipIcon,
+  "CRDT": Square2StackIcon,
+}
 
 /*
  * Modeled on the Canva "A few things I'm proud of" band (caramel): title top
@@ -24,12 +80,15 @@ export function SkillsSection() {
                 {group.category}
               </h3>
               <ul className="mt-4 space-y-2">
-                {group.items.map((skill) => (
-                  <li key={skill} className="flex items-center gap-3 text-copy">
-                    <TechIcon name={skill} className="size-[1em] shrink-0" />
-                    {skill}
-                  </li>
-                ))}
+                {group.items.map((skill) => {
+                  const Icon = skillIcons[skill] || CodeBracketIcon
+                  return (
+                    <li key={skill} className="flex items-center gap-3 text-copy">
+                      <Icon className="size-[1.15em] shrink-0" />
+                      <span>{skill}</span>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}

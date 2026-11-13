@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TechIcon } from "@/components/ui/tech-icon"
 import { skills } from "@/data/skills"
 import { BASE_URL } from "@/lib/constants"
+import { skillIcons } from "@/components/home/skills-section"
+import { CodeBracketIcon } from "@heroicons/react/24/outline"
 
 import { JsonLd } from "@/components/json-ld"
 
@@ -52,16 +53,19 @@ export default function SkillsPage() {
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2 sm:gap-3">
-                {group.items.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="secondary"
-                    className="flex items-center gap-2 bg-sidebar p-2 text-sm sm:p-4 sm:text-base text-text-secondary"
-                  >
-                    <TechIcon name={skill} className="size-4 sm:size-5 shrink-0" />
-                    <span>{skill}</span>
-                  </Badge>
-                ))}
+                {group.items.map((skill) => {
+                  const Icon = skillIcons[skill] || CodeBracketIcon
+                  return (
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="flex items-center gap-2 bg-sidebar p-2 text-sm sm:p-4 sm:text-base text-text-secondary"
+                    >
+                      <Icon className="size-4 sm:size-5 shrink-0" />
+                      <span>{skill}</span>
+                    </Badge>
+                  )
+                })}
               </div>
             </CardContent>
           </Card>
