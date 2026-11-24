@@ -69,11 +69,11 @@ export function SkillsSection() {
         <h2 data-cine="skills-title" className="font-display text-display">
           What I work with
         </h2>
-        <p data-cine="skills-lead" className="mt-[max(1.5rem,4.284vw)] text-lead">
+        <p data-cine="skills-lead" className="mt-[clamp(1.5rem,4.284vw,58.5px)] text-lead">
           The tools I reach for to ship web apps, APIs and automations.
         </p>
 
-        <div className="mt-[max(3rem,12.43vw)] grid gap-x-[min(5.94vw,81.2px)] gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-[clamp(3rem,12.43vw,169.8px)] grid gap-x-[min(5.94vw,81.2px)] gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((group, i) => (
             <div key={group.category} data-cine={i === 0 ? "skills-col" : undefined}>
               <h3 data-cine={i === 0 ? "skills-col-title" : undefined} className="text-title font-bold">

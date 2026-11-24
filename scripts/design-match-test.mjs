@@ -10,6 +10,7 @@
  *
  * Usage:  npm run test:design [-- --url http://localhost:3000/]
  *         npm run test:design -- --mobile   (390×844 full-page screenshot only)
+ *         npm run test:design -- --wide     (same checks at 2400×1239, except left positions)
  * Needs:  a running dev/prod server and google-chrome on PATH. No npm deps
  *         (uses the Chrome DevTools Protocol over Node's built-in WebSocket).
  */
@@ -29,7 +30,10 @@ const CHROME = argValue("--chrome", process.env.CHROME_PATH || "google-chrome")
 const OUT_DIR = path.resolve(argValue("--out", ".design-test"))
 const MOBILE = args.includes("--mobile")
 // Canva artboard size; --mobile only takes a full-page phone screenshot (no checks)
-const VIEWPORT = MOBILE ? { width: 390, height: 844 } : { width: 1366, height: 768 }
+// --wide re-runs the checks on a large screen: every size/top must stay at its 1366 value
+// (all fluid values are capped), only left positions change because the layout is centered.
+const WIDE = args.includes("--wide")
+const VIEWPORT = MOBILE ? { width: 390, height: 844 } : WIDE ? { width: 2400, height: 1239 } : { width: 1366, height: 768 }
 
 const log = (msg) => console.log(`[design-test] ${msg}`)
 
@@ -197,7 +201,7 @@ function compare(measured) {
   const rows = []
   for (const spec of SPEC) {
     const m = measured[spec.el]
-    const props = Object.keys(spec).filter((k) => !["el", "section", "tol", "note"].includes(k))
+    const props = Object.keys(spec).filter((k) => !["el", "section", "tol", "note"].includes(k) && !(WIDE && k === "left"))
     if (!m) {
       rows.push({ el: spec.el, prop: "(element)", expected: "present", actual: "missing", pass: false })
       continue
@@ -208,7 +212,12 @@ function compare(measured) {
       if (prop === "left") actual = base ? m.x - base.x : m.x
       else if (prop === "top") actual = base ? m.y - base.y : m.vy
       else actual = m[prop]
-      const expected = spec[prop]
+      let expected = spec[prop]
+      // The hero fills the screen height with its content anchored to the bottom,
+      // so on taller screens everything inside it shifts down by the extra height.
+      const heroExtra = Math.max(0, VIEWPORT.height - 768)
+      if (spec.el === "hero" && prop === "height") expected += heroExtra
+      if (spec.section === "hero" && prop === "top") expected += heroExtra
       const tol = spec.tol?.[prop] ?? (["fontSize", "lineHeight", "letterSpacing"].includes(prop) ? PX : prop === "fontWeight" ? 0 : POS)
       const pass = actual != null && Math.abs(actual - expected) <= tol
       rows.push({ el: spec.el, prop, expected, actual, pass, tol, note: spec.note })
@@ -218,6 +227,12 @@ function compare(measured) {
       const expected = spec.fontWeight === 250 ? DISPLAY_FONT : SANS_FONT
       rows.push({ el: spec.el, prop: "fontFamily", expected, actual: m.fontFamily, pass: m.fontFamily === expected })
     }
+  }
+  // The hero CTA must never touch the bottom of the hero band (Canva: 100px gap)
+  const hero = measured["hero"], cta = measured["hero-cta"]
+  if (hero && cta) {
+    const gap = hero.y + hero.height - (cta.y + cta.height)
+    rows.push({ el: "hero-cta", prop: "gapToBottom", expected: 100, actual: gap, pass: Math.abs(gap - 100) <= POS })
   }
   return rows
 }
@@ -274,7 +289,7 @@ async function writeReport(rows, shots, measured) {
   tr.bad td{color:#d9573a} tr.ok td:nth-child(5){color:#8fa860}
 </style>
 <h1>Design match report</h1>
-<p class="sum">${rows.length - failed.length}/${rows.length} checks pass at 1366×768 — ${URL_TO_TEST}</p>
+<p class="sum">${rows.length - failed.length}/${rows.length} checks pass at ${VIEWPORT.width}×${VIEWPORT.height} — ${URL_TO_TEST}</p>
 ${sections}
 <h2>All checks</h2>
 <table><tr><th>Element</th><th>Property</th><th>Canva</th><th>Site</th><th>Result</th><th>Note</th></tr>${tableRows}</table>

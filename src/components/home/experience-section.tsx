@@ -19,7 +19,7 @@ export function ExperienceSection() {
           </h2>
         </div>
 
-        <div className="flex max-w-[min(36.64vw,500.5px)] min-w-0 flex-col gap-[max(2.5rem,3.404vw)] max-md:max-w-none md:pt-[min(1.993vw,27.2px)]">
+        <div className="flex max-w-[min(36.64vw,500.5px)] min-w-0 flex-col gap-[clamp(2.5rem,3.404vw,46.5px)] max-md:max-w-none md:pt-[min(1.993vw,27.2px)]">
           {experience.map((exp, i) => (
             <article key={exp.company} data-cine={i === 0 ? "experience-item" : undefined}>
               <h3 data-cine={i === 0 ? "experience-item-title" : undefined} className="text-title font-bold">

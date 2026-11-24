@@ -25,14 +25,14 @@ export function ContactSection() {
             <h2 data-cine="contact-title" className="min-w-[16rem] font-display text-display">
               Let&apos;s build something worth using
             </h2>
-            <p data-cine="contact-lead" className="mt-[max(1.5rem,4.26vw)] text-lead">
+            <p data-cine="contact-lead" className="mt-[clamp(1.5rem,4.26vw,58.2px)] text-lead">
               Need a web app, an API or an automation that saves your team hours? Drop me a message and let&apos;s talk.
             </p>
           </div>
 
           <div
             data-cine="contact-form"
-            className="self-start rounded-lg bg-cream p-[max(1.5rem,2.343vw)] text-ink md:mt-[min(1.874vw,25.6px)]"
+            className="self-start rounded-lg bg-cream p-[clamp(1.5rem,2.343vw,32px)] text-ink md:mt-[min(1.874vw,25.6px)]"
           >
             <ContactForm tone="cream" />
           </div>

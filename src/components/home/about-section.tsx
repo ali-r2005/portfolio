@@ -20,7 +20,7 @@ export function AboutSection() {
         <h2 data-cine="about-title" className="font-display text-display">
           About me
         </h2>
-        <div className="space-y-[max(1rem,1.279vw)] md:pt-[min(1.698vw,23.2px)]">
+        <div className="space-y-[clamp(1rem,1.279vw,17.47px)] md:pt-[min(1.698vw,23.2px)]">
           {paragraphs.map((p, i) => (
             <p key={p.slice(0, 24)} data-cine={i === 0 ? "about-copy" : undefined} className="text-lead">
               {p}
