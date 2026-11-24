@@ -212,12 +212,7 @@ function compare(measured) {
       if (prop === "left") actual = base ? m.x - base.x : m.x
       else if (prop === "top") actual = base ? m.y - base.y : m.vy
       else actual = m[prop]
-      let expected = spec[prop]
-      // The hero fills the screen height with its content anchored to the bottom,
-      // so on taller screens everything inside it shifts down by the extra height.
-      const heroExtra = Math.max(0, VIEWPORT.height - 768)
-      if (spec.el === "hero" && prop === "height") expected += heroExtra
-      if (spec.section === "hero" && prop === "top") expected += heroExtra
+      const expected = spec[prop]
       const tol = spec.tol?.[prop] ?? (["fontSize", "lineHeight", "letterSpacing"].includes(prop) ? PX : prop === "fontWeight" ? 0 : POS)
       const pass = actual != null && Math.abs(actual - expected) <= tol
       rows.push({ el: spec.el, prop, expected, actual, pass, tol, note: spec.note })

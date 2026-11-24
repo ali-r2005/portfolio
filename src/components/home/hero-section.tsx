@@ -4,16 +4,13 @@ import Link from "next/link"
 /*
  * Canva "Hero" band (1366×768): photo at 70% on ink, title top 187px,
  * lead top 440px, cream CTA (382×58) top 610px, left gutter 100px.
- * The band fills the screen height (never less than 768px at 1366) and the
- * content sits at the bottom, so the CTA always keeps the template's 100px
- * gap to the band edge; at 1366×768 this lands exactly on the Canva layout.
  */
 export function HeroSection() {
   return (
     <section
       data-cine="hero"
       // Pulled up under the floating pill navbar so the photo runs behind it
-      className="relative -mt-[var(--cine-nav-offset)] flex min-h-[max(100svh,var(--cine-band))] flex-col justify-end overflow-hidden bg-ink text-cream"
+      className="relative -mt-[var(--cine-nav-offset)] min-h-[max(100svh,var(--cine-band))] overflow-hidden bg-ink text-cream md:min-h-[var(--cine-band)]"
     >
       <Image
         src="/home/hero-coffee.png"
